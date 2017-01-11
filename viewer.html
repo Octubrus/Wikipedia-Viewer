@@ -16,16 +16,25 @@
   <meta name="description" content="Search through Wiki using this neat app.">
 
 </head>
-<body class="blue darken-1 valign-wrapper blue">
+<body class="red accent-2 valign-wrapper">
+
   <div class="container valign">
+    <div>
+      <h3 class="center-align">Wikipedia Viewer</h3>
+    </div>
     <div class="row">
-      <div class="grid-example col s12 m6 offset-m3 input-field inline">
-        <input placeholder="What do you want to learn about?" id="search" type="text" class="validate">
-        <label for="search"></label>
+      <div class="col s12 m6 offset-m3 input-field inline">
+        <input id="search" type="text" class="validate">
+        <label for="search">Learn about?</label>
+        <div id="surprise">
+          <a href="https://en.wikipedia.org/wiki/Special:Random" class="waves-effect waves-light btn" target="_blank">Surprise Me!</a>
+        </div>
       </div>
     </div>
+    <ul>
+      <li>CSS Framework - <a class="grey-text text-lighten-3" href="http://materializecss.com/">MaterializeCSS</a></li>
+    </ul>
   </div>
-
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
