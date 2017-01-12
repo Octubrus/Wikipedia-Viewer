@@ -1,5 +1,5 @@
-html, body {
-  height: 100%;
+html, body, #wrapper {
+  height: 95%;
 }
 /* label color */
 .input-field input[type=text] + label {
@@ -11,18 +11,26 @@ html, body {
   box-shadow: 0 1px 0 0 #eee;
 }
 /* label focus color */
-  .input-field input[type=text]:focus + label {
-    color: #eee;
+.input-field input[type=text]:focus + label {
+  color: #eee;
 }
 /* label underline focus color */
-  .input-field input[type=text]:focus {
-    border-bottom: 1px solid #eee;
-    box-shadow: 0 1px 0 0 #eee;
-  }
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 1px 0 0 #eee;
+}
+.input-field {
+  color: #eee;
+}
 #surprise, ul {
   text-align: center;
 }
 h3 {
   color: #eee;
   font-size: 3em;
+  margin-bottom: 1.3em;
+}
+li {
+  color: #eee;
+  font-size: 1em;
 }
