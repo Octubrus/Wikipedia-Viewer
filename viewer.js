@@ -4,46 +4,35 @@ var result = $('#result');
 search.keyup(function() {
   if (search.val() === '') {
     result.html('');
+    return;
   }
 
   $.ajax({
-    url: "//en.wikipedia.org/w/api.php",
-    dataType: "jsonp",
+    url: 'https://en.wikipedia.org/w/api.php',
     data: {
-      'action': "query",
-      'list': "search",
-      'format': "json",
-      'srsearch': search.val()
+      action: 'query',
+      list: 'search',
+      format: 'json',
+      srsearch: search.val()
     },
+    dataType: 'jsonp',
     success: function(response) {
-      response.query.search.map(function(w) {
-        html += '      <a href="https://en.wikipedia.org/wiki/' + w.title + '" target="_blank">';
+      var html  = '';
+      response.query.search.map(function(cardFactory) {
+        html += ' <div class="row">';
+        html += '   <div class="col s12">';
+        html += '     <a href="https://en.wikipedia.org/wiki/' + cardFactory.title + '" target="_blank">';
+        html += '       <div class="card teal">';
+        html += '         <div class="card-content white-text">';
+        html += '           <span class="card-title">' + cardFactory.title + '</span>';
+        html += '           <p>' + cardFactory.snippet + '</p>';
+        html += '         </div>';
+        html += '       <div/>';
+        html += '     </a>';
+        html += '   <div/>';
+        html += ' </div>';
       });
-      html += '  </div>';
-
-      result.html(html);
+    result.html(html);
     }
   });
 });
-
-
-
-
-/*
-$("#search").autocomplete({
-  source: function(request, response) {
-    $.ajax({
-      url: "http://en.wikipedia.org/w/api.php",
-      dataType: "jsonp",
-      data: {
-        'action': "opensearch",
-        'format': "json",
-        'search': request.term
-      },
-      success: function(data) {
-        response(data[1]);
-      }
-    });
-  }
-});
-*/
